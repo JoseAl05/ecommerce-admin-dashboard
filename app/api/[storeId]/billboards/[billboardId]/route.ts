@@ -7,7 +7,7 @@ export async function GET(
   { params }: { params: { billboardId: string } }
 ) {
   try {
-    if (!params.billboardIdId) {
+    if (!params.billboardId) {
       return new NextResponse('Billboard Id is required', { status: 400 });
     }
 
@@ -63,7 +63,7 @@ export async function PATCH(
 
     const billboard = await prismadb.billboard.updateMany({
       where: {
-        id: params.billboardIdId,
+        id: params.billboardId,
       },
       data: {
         label,

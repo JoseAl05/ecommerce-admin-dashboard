@@ -45,7 +45,7 @@ export const StoreModal = () => {
                 toast.dismiss(loadingToast);
                 toast.error(`${response.status} ${response.statusText}`);
             }
-        } catch (error) {
+        } catch (error:any) {
             toast.error(error.message)
             console.log('[ON SUBMIT CREATE STORE]',error);
         } finally {

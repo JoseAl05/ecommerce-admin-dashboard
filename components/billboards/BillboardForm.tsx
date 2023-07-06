@@ -67,6 +67,7 @@ const BillboardForm: React.FC<BillboardFormProps> = ({ billboard }) => {
                 if (updateBillboard.status === 200) {
                     router.refresh();
                     toast.dismiss(toastLoading);
+                    router.push(`/${params.storeId}/billboards`);
                     toast.success(toastMessage);
                 } else {
                     toast.dismiss(toastLoading);
@@ -76,6 +77,7 @@ const BillboardForm: React.FC<BillboardFormProps> = ({ billboard }) => {
                 const createBillboard = await axios.post(`/api/${params.storeId}/billboards`, data);
                 if (createBillboard.status === 200) {
                     toast.dismiss(toastLoading);
+                    router.push(`/${params.storeId}/billboards`);
                     toast.success(toastMessage);
                 } else {
                     toast.dismiss(toastLoading);
@@ -83,7 +85,7 @@ const BillboardForm: React.FC<BillboardFormProps> = ({ billboard }) => {
                 }
             }
 
-            router.push(`/${params.storeId}/billboards`);
+
 
 
         } catch (error) {

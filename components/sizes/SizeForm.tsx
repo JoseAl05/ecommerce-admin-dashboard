@@ -66,6 +66,7 @@ const SizeForm: React.FC<SizeFormProps> = ({ size }) => {
                 if (updateSize.status === 200) {
                     router.refresh();
                     toast.dismiss(toastLoading);
+                    router.push(`/${params.storeId}/sizes`);
                     toast.success(toastMessage);
                 } else {
                     toast.dismiss(toastLoading);
@@ -75,6 +76,7 @@ const SizeForm: React.FC<SizeFormProps> = ({ size }) => {
                 const createSize = await axios.post(`/api/${params.storeId}/sizes`, data);
                 if (createSize.status === 200) {
                     toast.dismiss(toastLoading);
+                    router.push(`/${params.storeId}/sizes`);
                     toast.success(toastMessage);
                 } else {
                     toast.dismiss(toastLoading);
@@ -82,7 +84,7 @@ const SizeForm: React.FC<SizeFormProps> = ({ size }) => {
                 }
             }
 
-            router.push(`/${params.storeId}/sizes`);
+            
 
 
         } catch (error) {

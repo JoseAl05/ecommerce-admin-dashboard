@@ -68,6 +68,7 @@ const CategoryForm: React.FC<CategoryFormProps> = ({ category,billboards }) => {
                 if (updateCategory.status === 200) {
                     router.refresh();
                     toast.dismiss(toastLoading);
+                    router.push(`/${params.storeId}/categories`);
                     toast.success(toastMessage);
                 } else {
                     toast.dismiss(toastLoading);
@@ -77,6 +78,7 @@ const CategoryForm: React.FC<CategoryFormProps> = ({ category,billboards }) => {
                 const createCategory = await axios.post(`/api/${params.storeId}/categories`, data);
                 if (createCategory.status === 200) {
                     toast.dismiss(toastLoading);
+                    router.push(`/${params.storeId}/categories`);
                     toast.success(toastMessage);
                 } else {
                     toast.dismiss(toastLoading);
@@ -84,7 +86,6 @@ const CategoryForm: React.FC<CategoryFormProps> = ({ category,billboards }) => {
                 }
             }
 
-            router.push(`/${params.storeId}/categories`);
 
 
         } catch (error) {

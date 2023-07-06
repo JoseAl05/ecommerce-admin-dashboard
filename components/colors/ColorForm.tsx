@@ -23,7 +23,7 @@ interface ColorFormProps {
 
 const formSchema = z.object({
     name: z.string().min(1),
-    value: z.string().min(4).regex(/^#/,{
+    value: z.string().min(4).regex(/^#/, {
         message: 'String must be a valid hex code'
     }),
 });
@@ -68,6 +68,7 @@ const ColorForm: React.FC<ColorFormProps> = ({ color }) => {
                 if (updateColor.status === 200) {
                     router.refresh();
                     toast.dismiss(toastLoading);
+                    router.push(`/${params.storeId}/colors`);
                     toast.success(toastMessage);
                 } else {
                     toast.dismiss(toastLoading);
@@ -77,6 +78,7 @@ const ColorForm: React.FC<ColorFormProps> = ({ color }) => {
                 const createColor = await axios.post(`/api/${params.storeId}/colors`, data);
                 if (createColor.status === 200) {
                     toast.dismiss(toastLoading);
+                    router.push(`/${params.storeId}/colors`);
                     toast.success(toastMessage);
                 } else {
                     toast.dismiss(toastLoading);
@@ -84,7 +86,7 @@ const ColorForm: React.FC<ColorFormProps> = ({ color }) => {
                 }
             }
 
-            router.push(`/${params.storeId}/colors`);
+
 
 
         } catch (error) {
@@ -179,7 +181,7 @@ const ColorForm: React.FC<ColorFormProps> = ({ color }) => {
                                             <Input disabled={loading} placeholder='Color value' {...field} />
                                             <div
                                                 className='border p-4 rounded-full'
-                                                style={{backgroundColor: field.value}}
+                                                style={{ backgroundColor: field.value }}
                                             />
                                         </div>
                                     </FormControl>

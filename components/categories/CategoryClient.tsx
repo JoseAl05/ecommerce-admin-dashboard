@@ -5,12 +5,11 @@ import { PlusIcon } from 'lucide-react';
 import Heading from '../ui/heading';
 import { Button } from '../ui/button';
 import { Separator } from '../ui/separator';
-import { BillboardColumn, BillboardColumns } from './BillboardColumns';
 import { DataTable } from '../ui/dataTable';
 import ApiList from '../ui/apiList';
 import { CategoryColumn, CategoryColumns } from './CategoryColumns';
 
-interface CateogryClientProps{
+interface CategoryClientProps{
     categories: CategoryColumn[];
 }
 

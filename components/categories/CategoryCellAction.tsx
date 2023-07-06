@@ -11,7 +11,7 @@ import AlertModal from '../modals/AlertModal';
 import { CategoryColumn } from './CategoryColumns';
 
 
-interface BillboardCellActionProps{
+interface CategoryCellActionProps{
     category:CategoryColumn;
 }
 

@@ -82,7 +82,7 @@ const SettingsForm: React.FC<SettingsFormProps> = ({ store }) => {
                 toast.success('Store deleted!');
             } else {
                 toast.dismiss(toastLoading);
-                toast.error(`${updateStore.status} ${updateStore.statusText}`);
+                toast.error(`${deleteStore.status} ${deleteStore.statusText}`);
             }
 
         } catch (error) {
